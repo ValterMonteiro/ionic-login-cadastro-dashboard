@@ -1,6 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>login</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -10,4 +13,27 @@
       <ion-title size="large">login</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-list>
+    <ion-item>
+      <ion-avatar slot="start">
+        <!-- <ion-img src=""></ion-img> -->
+        <ion-icon size="large" name="person"></ion-icon>
+        </ion-avatar>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Usuário</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Senha</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <!-- <ion-item> -->
+    <ion-button expand="block" (click)="abrirPagina('dashboard')">Acessar</ion-button>
+    <ion-label>Ainda não é cadastrado?</ion-label>
+    <ion-button expand="block" (click)="abrirPagina('cadastro')">Cadastrar</ion-button>
+  <!-- </ion-item> -->
 </ion-content>
