@@ -1,6 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>cadastro</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -10,4 +13,37 @@
       <ion-title size="large">cadastro</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Categoria</ion-label>
+      <ion-select multiple="true" cancelText="Cancelar" okText="Confirmar">
+        <ion-select-option>Iniciante</ion-select-option>
+        <ion-select-option>Junior</ion-select-option>
+        <ion-select-option>Senior</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="pessoa.nome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">CPF</ion-label>
+      <ion-input type="text" [(ngModel)]="pessoa.CPF"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Telefone</ion-label>
+      <ion-input type="text" [(ngModel)]="pessoa.telefone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>E-mail</ion-label>
+      <ion-input type="email" [(ngModel)]="pessoa.email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Senha</ion-label>
+      <ion-input type="password" [(ngModel)]="pessoa.senha"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="block" (click)="presentToast('top')">Salvar</ion-button>
+
 </ion-content>
