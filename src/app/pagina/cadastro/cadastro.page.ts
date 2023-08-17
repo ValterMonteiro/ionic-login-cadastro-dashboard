@@ -16,8 +16,7 @@ export class CadastroPage implements OnInit {
     senha: ""
     }
     constructor(private toast: ToastController) { }
-    ngOnInit() {
-    }
+
     async presentToast(position: 'top' | 'middle' | 'bottom') {
     const toast = await this.toast.create({
     message: 'Cadastrado com sucesso! '+this.pessoa.nome,
@@ -27,5 +26,7 @@ export class CadastroPage implements OnInit {
     await toast.present();
     }
 
+    ngOnInit() {
+    }
 
 }
