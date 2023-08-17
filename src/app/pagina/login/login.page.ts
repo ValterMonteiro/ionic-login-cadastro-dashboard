@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -11,17 +11,30 @@ export class LoginPage implements OnInit {
   public autenticacao = {
     usuario: "",
     senha: ""
-    }
+  }
 
   //NavController é responsável por gerenciar a navegabilidade
-  constructor(public nav: NavController) { }
+  constructor(public nav: NavController, private toast: ToastController) { }
+
+  async presentToast(position: 'top' | 'middle' | 'bottom') {
+    const toast = await this.toast.create({
+      message: 'Usuário ou senha incorreto! ' + this.autenticacao.usuario,
+      duration: 1500,
+      position: position,
+    });
+    await toast.present();
+  }
 
   abrirPagina(x: string) {
-    if(this.autenticacao.usuario == "admin" && this.autenticacao.senha == "admin") {
-      console.log("Você clicou no botão");
-      this.nav.navigateForward(x);
-    }
+    this.nav.navigateForward(x);
+  }
 
+  acessar(  ) {
+    if (this.autenticacao.usuario == "admin" && this.autenticacao.senha == "admin") {
+    this.abrirPagina('dashboard');
+    } else {
+      this.presentToast('middle');
+    }
   }
 
   ngOnInit() {
