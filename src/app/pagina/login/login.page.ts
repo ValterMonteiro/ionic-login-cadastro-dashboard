@@ -8,11 +8,20 @@ import { NavController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
+  public autenticacao = {
+    usuario: "",
+    senha: ""
+    }
+
   //NavController é responsável por gerenciar a navegabilidade
   constructor(public nav: NavController) { }
+
   abrirPagina(x: string) {
-    //console.log("Você clicou no botão");
-    this.nav.navigateForward(x);
+    if(this.autenticacao.usuario == "admin" && this.autenticacao.senha == "admin") {
+      console.log("Você clicou no botão");
+      this.nav.navigateForward(x);
+    }
+
   }
 
   ngOnInit() {
